@@ -19,7 +19,9 @@ public class Card {
     public Rank getRank() {
         return rank;
     }
-
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
     public int getValue(){
         return rank.ordinal()+2; ///MAYBE??!
     }
@@ -34,7 +36,7 @@ public class Card {
         switch(suit.ordinal()){
             case 0: sb.append(String.format(".------.\n|%-2s_   |\n| ( )  |\n|(_x_) |\n|  Y %-2s|\n`------'\n", rank.getAbbreviation(), rank.getAbbreviation()));
                     break;
-            case 1: sb.append(String.format(".------.\n|%-2s  _ |\n|( \\/ )|\n| \\  / |\n|  \\/%-2s|\n`------'\n", rank.getAbbreviation(),rank.getAbbreviation()));
+            case 1: sb.append(String.format(ANSI_RED+".------.\n|%-2s  _ |\n|( \\/ )|\n| \\  / |\n|  \\/%-2s|\n`------'\n"+ANSI, rank.getAbbreviation(),rank.getAbbreviation()));
                     break;
             case 2: sb.append(String.format(".-------.\n|%-2s /\\  |\n|  /  \\ |\n|  \\  / |\n|   \\/%-2s|\n`-------' \n", rank.getAbbreviation(), rank.getAbbreviation()));
                     break;
